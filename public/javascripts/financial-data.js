@@ -9,7 +9,7 @@ document.getElementById('btn').addEventListener('click', () => {
    
 
 
-    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=USD`)
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${document.getElementById('startDate').value}&end=${document.getElementById('endDate').value}&currency=${document.getElementById('mySelect').value}`)
     .then(response => {
         printTheChart(response.data);
     })
