@@ -22,10 +22,17 @@ document.getElementById('btn').addEventListener('click', () => {
 function printTheChart(stockData) {
 
     const dailyData = stockData["bpi"];
+    console.log('je recupere',dailyData);
 
     const stockDates = Object.keys(dailyData);
+    
     const stockPrices = stockDates.map(date => dailyData[date]);
+     const valMx=Math.max(...stockPrices)
+     const valMn=Math.min(...stockPrices)
 
+     document.getElementById("valMx").innerHTML = valMx;
+     document.getElementById("valMn").innerHTML = valMn;
+    console.log('je recuperemon max', Math.max(...stockPrices));
     const ctx = document.getElementById('my-chart').getContext('2d');
     const chart = new Chart(ctx, {
         type: 'line',
